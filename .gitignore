@@ -1,0 +1,23 @@
+# ── Build artifacts ──────────────────────────────────────────────────
+.build/
+target/
+*.app
+
+# ── macOS junk ──────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ── IDE / Editor ────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── Rust ────────────────────────────────────────────────────────────
+**/Cargo.lock
+
+# ── Project tool config (auto-generated) ────────────────────────────
+.deepseek/

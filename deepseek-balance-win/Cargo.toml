@@ -1,0 +1,28 @@
+[package]
+name = "deepseek-balance"
+version = "1.0.0"
+edition = "2021"
+description = "Windows system tray app showing DeepSeek API balance in real time"
+
+[dependencies]
+windows = { version = "0.58", features = [
+    "Win32_UI_WindowsAndMessaging",
+    "Win32_UI_Shell",
+    "Win32_Graphics_Gdi",
+    "Win32_System_Registry",
+    "Win32_Security_Cryptography",
+    "Win32_Foundation",
+    "Win32_System_SystemInformation",
+    "Win32_UI_Input_KeyboardAndMouse",
+    "Win32_System_Com",
+]}
+ureq = { version = "2", default-features = false, features = ["tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+opt-level = "z"     # optimize for size
+lto = true          # link-time optimization
+codegen-units = 1   # better optimization
+strip = true        # strip symbols
+panic = "abort"     # smaller binary
